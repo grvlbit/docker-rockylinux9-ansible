@@ -13,6 +13,10 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
+# Set specific repo urls (mirror.rockylinux timeout issue)
+sed -i '/mirrorlist/s/^/#/g' /etc/yum.repos.d/rocky-*.repo
+sed -i '/baseurl/s/^#//g' /etc/yum.repos.d/rocky-*.repo
+
 # Install requirements.
 RUN yum -y install rpm dnf-plugins-core \
  && yum -y update \
