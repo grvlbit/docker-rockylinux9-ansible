@@ -14,8 +14,8 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Set specific repo urls (mirror.rockylinux timeout issue)
-RUN sed -i '/mirrorlist/s/^/#/g' /etc/yum.repos.d/rocky-*.repo
-RUN sed -i '/baseurl/s/^#//g' /etc/yum.repos.d/rocky-*.repo
+# RUN sed -i '/mirrorlist/s/^/#/g' /etc/yum.repos.d/rocky-*.repo
+# RUN sed -i '/baseurl/s/^#//g' /etc/yum.repos.d/rocky-*.repo
 
 # Install requirements.
 RUN yum -y install rpm dnf-plugins-core \
